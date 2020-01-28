@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.2 (unreleased)
+2.2 (2020-01-28)
 ----------------
 
 * Use @implementer and @adapter class decorators for Python3 compatibility [ale-rt]
