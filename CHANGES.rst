@@ -4,7 +4,7 @@ Changelog
 2.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+* Use @implementer and @adapter class decorators for Python3 compatibility [ale-rt]
 
 
 2.1 - May 10, 2016
