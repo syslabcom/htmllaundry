@@ -4,7 +4,11 @@ Changelog
 2.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+* Use new ``lxml_html_clean`` package when available.
+  You need this when you are using ``lxml`` 5.2 or later.
+  We don't want to make this a hard dependency.
+  When you use Plone 6.0.11 or later, you must use this new ``htmllaundry`` version.
+  Fine for older Plone versions as well.
 
 
 2.2 (2020-01-28)

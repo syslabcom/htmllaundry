@@ -1,5 +1,10 @@
-from lxml.html.clean import Cleaner
-from lxml.html.clean import _find_external_links
+try:
+    from lxml_html_clean.clean import _find_external_links
+    from lxml_html_clean.clean import Cleaner
+except ImportError:
+    # BBB for lxml 5.1 or earlier
+    from lxml.html.clean import _find_external_links
+    from lxml.html.clean import Cleaner
 
 
 marker = []
@@ -18,6 +23,8 @@ class LaundryCleaner(Cleaner):
             if target is None:
                 if 'target' in el.attrib:
                     del el.attrib['target']
+            elif isinstance(target, (list, tuple)):
+                el.set('target', target[0])
             else:
                 el.set('target', target)
 
@@ -71,7 +78,7 @@ CommentCleaner = LaundryCleaner(
             processing_instructions=False,
             frames=False,
             annoying_tags=False,
-            link_target="_blank")
+            link_target=["_blank"])
 
 
 __all__ = ['DocumentCleaner', 'LineCleaner', 'CommentCleaner']
